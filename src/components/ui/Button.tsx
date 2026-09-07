@@ -3,12 +3,13 @@
 import { cn } from "@/lib/utils";
 import { motion, type HTMLMotionProps } from "framer-motion";
 import Link from "next/link";
-import { forwardRef } from "react";
+import { forwardRef, type ReactNode } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
-interface ButtonProps extends HTMLMotionProps<"button"> {
+interface ButtonProps extends Omit<HTMLMotionProps<"button">, "children"> {
+  children?: ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
   href?: string;
